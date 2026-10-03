@@ -1,0 +1,46 @@
+{
+  "_help": "Edit the values below. Keys starting with _ are ignored. Delete any key you don't need - defaults are used.",
+
+  "_appName": "Name shown under the app icon",
+  "appName": "My App",
+
+  "_appId": "Unique Android package name, e.g. com.mycompany.myapp (change it for every different app)",
+  "appId": "com.mycompany.myapp",
+
+  "_version": "versionName is shown to users; versionCode must be a whole number that grows with every release",
+  "versionName": "1.0.0",
+  "versionCode": 1,
+
+  "_apkName": "Output file name without .apk (empty = taken from appName)",
+  "apkName": "myapp",
+
+  "_url": "Live website address to load, e.g. https://example.com (empty = bundle this repo's web files)",
+  "url": "https://example.com",
+
+  "_webDir": "Folder with the built site (empty = auto-detect dist, build, www, public, then repo root, then docs)",
+  "webDir": "",
+
+  "_buildCommand": "Run before bundling if the site needs a build, e.g. npm ci && npm run build (then set webDir to dist)",
+  "buildCommand": "",
+
+  "androidScheme": "https",
+  "allowCleartext": true,
+
+  "_allowNavigation": "Hosts the app may open inside itself; other links open in the browser. The host of url is added automatically. Wildcards work, e.g. *.example.com",
+  "allowNavigation": ["127.0.0.1", "localhost", "10.0.2.2"],
+
+  "_permissions": "Extra Android permissions, e.g. [\"CAMERA\", \"ACCESS_FINE_LOCATION\", \"RECORD_AUDIO\"]",
+  "permissions": [],
+
+  "_orientation": "default, portrait or landscape",
+  "orientation": "default",
+
+  "_backgroundColor": "Icon background and app background colour, e.g. #ffffff",
+  "backgroundColor": "#ffffff",
+
+  "_splashColor": "Splash screen background colour while the app starts (empty = same as backgroundColor). Your icon.png is shown in the middle",
+  "splashColor": "",
+
+  "_offlinePage": "With url: show a No connection page with a retry button instead of a blank error screen (true or false)",
+  "offlinePage": true
+}

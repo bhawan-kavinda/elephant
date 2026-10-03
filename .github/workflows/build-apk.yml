@@ -1,0 +1,92 @@
+# Web2APK - build ONE Android APK from this web project (simple setup).
+#
+# HOW TO USE: copy the whole  .github  folder from Web2APK's  setup/  folder into the root
+# of your web project. Layout:
+#   .github/workflows/build-apk.yml   (this file - leave as is)
+#   .github/app.json                  (your app's name, id, version ...)
+#   .github/icon.png                  (your app's icon)
+# Push (or run manually) -> Actions tab -> Build APK -> run -> Artifacts -> apk
+# This workflow always uses an official, tagged Web2APK release (never local code).
+# By default that is the newest release; set WEB2APK_REF below to pin one tag.
+name: Build APK
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  # The public Web2APK repo that does the real work, as  owner/repo.
+  WEB2APK_REPO: bhawan-kavinda/Web2APK
+  # Which Web2APK release to use when run.json source is "clone".
+  #   'latest'  = always the newest release tag (vX.Y.Z) of the Web2APK repo. Publish a new
+  #               release there and every user gets it automatically.
+  #   'v1.1.0'  = pin one exact tag (safest: this script receives your signing secrets,
+  #               so a pinned tag never changes under you).
+  # Branches are never followed - only release tags. (Empty = same as 'latest'.)
+  WEB2APK_REF: 'latest'
+
+jobs:
+  build:
+    name: Build APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout web repo
+        uses: actions/checkout@v4
+
+      - name: Check config files
+        run: |
+          for f in app.json icon.png; do
+            if [ ! -f ".github/$f" ]; then
+              echo "::warning::.github/$f is missing - Web2APK's default is used instead."
+            fi
+          done
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Get Web2APK (official release)
+        run: |
+          REPO_URL="https://github.com/$WEB2APK_REPO.git"
+          REF="$WEB2APK_REF"
+          if [ -z "$REF" ] || [ "$REF" = "latest" ]; then
+            # newest release tag of the form vX.Y.Z (no branches, no pre-release tags)
+            REF=$(git ls-remote --tags --refs --sort=-v:refname "$REPO_URL" 'v*' | sed 's#.*refs/tags/##' | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | head -n1)
+            if [ -z "$REF" ]; then
+              echo "::error::No release tag (vX.Y.Z) found in $WEB2APK_REPO. Publish a release, or set WEB2APK_REF to a tag."
+              exit 1
+            fi
+          fi
+          echo "Cloning official Web2APK $REF"
+          git clone --depth 1 --branch "$REF" "$REPO_URL" "$RUNNER_TEMP/Web2APK"
+          echo "W2A_DIR=$RUNNER_TEMP/Web2APK" >> "$GITHUB_ENV"
+
+      - name: Build APK
+        env:
+          WEB_DIR: ${{ github.workspace }}
+          CONFIG_DIR: ${{ github.workspace }}/.github
+          OUT_DIR: ${{ github.workspace }}/output
+          # Optional signing key (see example.env). Empty = a temporary key is generated.
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: node "$W2A_DIR/scripts/build.mjs"
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: apk
+          path: output/*.apk
+          if-no-files-found: error
