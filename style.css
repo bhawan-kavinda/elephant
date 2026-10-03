@@ -2,7 +2,13 @@
   --ink:#1b2622; --muted:#4a5a53; --bg:#eef2ed; --card:#fff; --line:#d3ddd5;
   --forest:#24453f; --amber:#f4b860; --dusk:#12262f;
   --serif:Georgia,"Times New Roman",serif;
+  --btn:#24453f; --btn-hover:#2f5a52; --axis:#9aa8a2; --person:#24453f;
   --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+html[data-theme="dark"]{
+  --ink:#e3ebe6; --muted:#a3b3ab; --bg:#0e1714; --card:#16231f; --line:#27382f;
+  --forest:#8fcfb6; --btn:#2f5a52; --btn-hover:#3b6e64; --axis:#5d6f67; --person:#8fcfb6;
+  color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -46,8 +52,19 @@ main > section.wrap{padding-top:3rem}
 .traits li{margin-bottom:.5rem}
 main > section.fun{padding-bottom:3rem}
 #fact{font:1.25rem/1.5 var(--serif);min-height:4.5rem;max-width:36rem}
-button{font:inherit;font-weight:600;background:var(--forest);color:#fff;border:0;border-radius:.5rem;padding:.65rem 1.3rem;cursor:pointer}
-button:hover{background:#2f5a52}
+button{font:inherit;font-weight:600;background:var(--btn);color:#fff;border:0;border-radius:.5rem;padding:.65rem 1.3rem;cursor:pointer}
+button:hover{background:var(--btn-hover)}
 footer{border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;padding-top:1.25rem;padding-bottom:2rem}
 
-@media (prefers-reduced-motion:reduce){.ear,.trunk,.tail{animation:none}html{scroll-behavior:auto}}
+body,.cards article,.size{transition:background-color .3s,color .3s,border-color .3s}
+
+/* floating theme toggle */
+.theme-toggle{position:fixed;top:max(.9rem,env(safe-area-inset-top));right:max(.9rem,env(safe-area-inset-right));z-index:100;width:2.9rem;height:2.9rem;padding:0;display:grid;place-items:center;border-radius:50%;background:rgba(18,38,47,.85);color:var(--amber);border:1px solid rgba(255,255,255,.25);box-shadow:0 4px 14px rgba(0,0,0,.3);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:transform .2s,background-color .2s}
+.theme-toggle:hover{background:rgba(18,38,47,.95);transform:scale(1.08)}
+.theme-toggle svg{grid-area:1/1;width:1.5rem;height:1.5rem}
+.theme-toggle .i-sun{display:none}
+html[data-theme="dark"] .theme-toggle .i-sun{display:block}
+html[data-theme="dark"] .theme-toggle .i-moon{display:none}
+html[data-theme="light"] .theme-toggle{background:rgba(255,255,255,.9);color:#24453f;border-color:rgba(0,0,0,.15)}
+
+@media (prefers-reduced-motion:reduce){.ear,.trunk,.tail{animation:none}body,.cards article,.size,.theme-toggle{transition:none}html{scroll-behavior:auto}}

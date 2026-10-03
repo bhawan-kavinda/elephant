@@ -39,3 +39,13 @@ ele.addEventListener('click', () => {
   ele.classList.add('fast');
   setTimeout(() => ele.classList.remove('fast'), 1500);
 });
+
+// 4. Floating dark / light mode toggle (remembers the choice).
+const root = document.documentElement, tbtn = document.getElementById('theme-toggle');
+const setTheme = (t) => {
+  root.dataset.theme = t;
+  tbtn.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  try { localStorage.setItem('theme', t); } catch (e) {}
+};
+tbtn.setAttribute('aria-label', root.dataset.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+tbtn.addEventListener('click', () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
