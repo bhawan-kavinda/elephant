@@ -15,7 +15,7 @@
   "apkName": "myapp",
 
   "_url": "Live website address to load, e.g. https://example.com (empty = bundle this repo's web files)",
-  "url": "https://example.com",
+  "url": "",
 
   "_webDir": "Folder with the built site (empty = auto-detect dist, build, www, public, then repo root, then docs)",
   "webDir": "",
