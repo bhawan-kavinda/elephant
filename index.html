@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sri Lankan Elephant</title>
+<meta name="description" content="A short illustrated guide to the Sri Lankan elephant.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- shared art -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="sil" viewBox="0 0 400 300">
+    <g fill="currentColor">
+      <ellipse cx="215" cy="165" rx="128" ry="82"/><circle cx="112" cy="140" r="66"/><ellipse cx="160" cy="138" rx="46" ry="62"/>
+      <rect x="95" y="190" width="46" height="80" rx="16"/><rect x="125" y="190" width="44" height="78" rx="16"/>
+      <rect x="248" y="190" width="44" height="78" rx="16"/><rect x="280" y="190" width="46" height="80" rx="16"/>
+      <path d="M82 162C46 186 40 236 62 262" fill="none" stroke="currentColor" stroke-width="38" stroke-linecap="round"/>
+    </g>
+  </symbol>
+  <symbol id="palm" viewBox="-80 -130 160 140">
+    <path d="M0 0Q8-60-4-120" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+    <g fill="currentColor" transform="translate(-4 -120)">
+      <path d="M0 0Q30-30 70-8Q36-14 0 0"/><path d="M0 0Q-30-30-70-8Q-36-14 0 0"/>
+      <path d="M0 0Q20-45 55-40Q25-30 0 0"/><path d="M0 0Q-20-45-55-40Q-25-30 0 0"/><path d="M0 0Q4-40 0-55Q-6-30 0 0"/>
+    </g>
+  </symbol>
+</svg>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Sri Lankan elephant</h1>
+    <p>The largest of the Asian elephant subspecies, found only on one island. It shapes the forests it lives in and the festivals people hold.</p>
+    <a class="btn" href="#facts">Meet the herd</a>
+  </div>
+
+  <svg class="scene" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice" role="img" aria-label="An elephant at dusk with a herd and palm trees in the distance">
+    <circle cx="880" cy="250" r="110" fill="#f4b860"/>
+    <path d="M0 300Q200 230 420 290T820 280T1200 270V420H0Z" fill="#24453f"/>
+    <path d="M0 340Q260 290 520 335T1200 320V420H0Z" fill="#183530"/>
+    <use href="#palm" x="30" y="215" width="200" height="175" style="color:#0c1a17"/>
+    <use href="#palm" x="1010" y="225" width="180" height="160" style="color:#0c1a17"/>
+    <use href="#sil" x="250" y="265" width="150" height="112" style="color:#0c1a17"/>
+    <use href="#sil" x="390" y="290" width="105" height="79" style="color:#0c1a17"/>
+    <path d="M0 380Q300 360 600 385T1200 370V420H0Z" fill="#0f241f"/>
+    <g id="hero-ele" transform="translate(700 195) scale(.62)">
+      <rect x="125" y="190" width="44" height="78" rx="16" fill="#5f6d78"/><rect x="248" y="190" width="44" height="78" rx="16" fill="#5f6d78"/>
+      <g class="tail"><path d="M333 150c28 8 24 45 14 62" fill="none" stroke="#5f6d78" stroke-width="7" stroke-linecap="round"/><circle cx="347" cy="216" r="7" fill="#46515a"/></g>
+      <ellipse cx="215" cy="165" rx="128" ry="82" fill="#7a8995"/>
+      <rect x="95" y="190" width="46" height="80" rx="16" fill="#7a8995"/><rect x="280" y="190" width="46" height="80" rx="16" fill="#7a8995"/>
+      <circle cx="112" cy="140" r="66" fill="#86949f"/>
+      <g class="ear"><ellipse cx="160" cy="138" rx="46" ry="62" fill="#95a2ad" stroke="#66737e" stroke-width="3"/><ellipse cx="164" cy="142" rx="28" ry="42" fill="#d9a9a0" opacity=".6"/></g>
+      <g class="trunk"><path d="M82 162C46 186 40 236 62 262" fill="none" stroke="#86949f" stroke-width="38" stroke-linecap="round"/>
+        <path d="M60 190q10-4 20 2M52 210q10-4 20 2M50 230q10-4 18 2" fill="none" stroke="#66737e" stroke-width="3" stroke-linecap="round"/></g>
+      <circle cx="96" cy="124" r="6.5" fill="#151b22"/><circle cx="98" cy="122" r="2" fill="#fff"/>
+    </g>
+  </svg>
+</header>
+
+<main>
+  <section class="wrap" id="facts">
+    <h2>The numbers</h2>
+    <dl class="stats">
+      <div><dt>Weight, large males</dt><dd><span data-count="5500">5500</span> kg</dd></div>
+      <div><dt>Shoulder height</dt><dd>up to <span data-count="3.5" data-dec="1">3.5</span> m</dd></div>
+      <div><dt>Lifespan</dt><dd>about <span data-count="70">70</span> years</dd></div>
+      <div><dt>Pregnancy</dt><dd>about <span data-count="22">22</span> months</dd></div>
+    </dl>
+  </section>
+
+  <section class="wrap">
+    <h2>How big is big?</h2>
+    <p class="lead">A large bull stands roughly twice as tall as an adult person at the shoulder.</p>
+    <svg class="size" viewBox="0 0 520 240" role="img" aria-label="A person next to an elephant, drawn to the same scale">
+      <line x1="10" y1="220" x2="510" y2="220" stroke="#9aa8a2" stroke-width="2"/>
+      <g fill="#24453f"><circle cx="70" cy="132" r="9"/><rect x="61" y="143" width="18" height="40" rx="8"/><rect x="62" y="180" width="6" height="40" rx="3"/><rect x="72" y="180" width="6" height="40" rx="3"/></g>
+      <text x="70" y="238" text-anchor="middle" font-size="13" fill="#4a5a53">Adult, 1.7 m</text>
+      <use href="#sil" x="140" y="-28" width="369" height="277" style="color:#7a8995"/>
+      <text x="340" y="238" text-anchor="middle" font-size="13" fill="#4a5a53">Large bull, up to 3.5 m</text>
+    </svg>
+  </section>
+
+  <section class="wrap">
+    <h2>Life in the wild</h2>
+    <div class="cards">
+      <article>
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 38C10 20 22 10 40 8c0 18-8 30-26 30z" fill="#3f8a5a"/><path d="M10 38C18 28 26 20 34 14" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <h3>Diet</h3><p>Grass makes up most of the diet, with bark, leaves, roots and fruit. An adult can eat around 150 kg a day and feeds for up to 16 hours.</p>
+      </article>
+      <article>
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6C16 18 11 25 11 31a13 13 0 0 0 26 0c0-6-5-13-13-25z" fill="#2b7a9a"/><path d="M18 32a6 6 0 0 0 6 6" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <h3>Water</h3><p>Elephants drink 100 to 200 litres a day, so they stay close to rivers, tanks and lakes. They bathe and spray mud to protect their skin.</p>
+      </article>
+      <article>
+        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="16" r="7" fill="#c9774a"/><circle cx="12" cy="32" r="6" fill="#d99a6c"/><circle cx="36" cy="32" r="6" fill="#d99a6c"/><circle cx="24" cy="38" r="4" fill="#e8bd94"/></svg>
+        <h3>Herd life</h3><p>Herds of related females and calves are led by an older female, the matriarch. Adult males often roam alone or in small groups.</p>
+      </article>
+      <article>
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5l16 6v12c0 10-7 17-16 20C15 40 8 33 8 23V11z" fill="#4b6fb5"/><path d="M17 24l5 5 9-10" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Conservation</h3><p>The species is listed as endangered. Habitat loss and conflict with farmers are the main threats. A 2011 census counted about 5,900 elephants.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <h2>What sets it apart</h2>
+    <ul class="traits">
+      <li>Most males have no tusks. Males with tusks, called tuskers, are rare in Sri Lanka.</li>
+      <li>Pale pink patches often show on the ears, face and trunk.</li>
+      <li>The forehead has two rounded domes with a dip between them.</li>
+      <li>A newborn calf weighs about 100 kg.</li>
+      <li>Large gatherings form at Minneriya National Park in the dry season.</li>
+    </ul>
+  </section>
+
+  <section class="wrap fun">
+    <h2>Try a random fact</h2>
+    <p id="fact" aria-live="polite">Elephants use their trunks to breathe, smell, drink, and pick up food.</p>
+    <button id="next" type="button">Show another fact</button>
+  </section>
+</main>
+
+<footer class="wrap">Test page for GitHub Pages and Web2APK. Content is a short summary, not a scientific reference.</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
